@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" >
+<title>HW1: Tesselation and Twist</title>
+
+
+<script id="vertex-shader" type="x-shader/x-vertex">
+attribute vec4 vPosition;
+
+void
+main()
+{
+    gl_Position = vPosition;
+}
+</script>
+
+<script id="fragment-shader" type="x-shader/x-fragment">
+precision mediump float;
+
+void
+main()
+{
+    gl_FragColor = vec4( 0.0, 1.0, 0.0, 1.0 );
+}
+</script>
+
+<script type="text/javascript" src="../Common/webgl-utils.js"></script>
+<script type="text/javascript" src="../Common/initShaders.js"></script>
+<script type="text/javascript" src="../Common/MV.js"></script>
+<script type="text/javascript" src="hw1.js"></script>
+</head>   
+
+<body>
+<h1>HW1: Tesselation and Twist</h1>
+<form id="settings">
+Divisions: <input type=range id=numDivisions min=0 value=2 max=7 step=1 oninput="numDivisionsValue.value=value">
+<output id="numDivisionsValue"></output>
+<br/>
+Twist: <input type=range id=theta min=0 value=0 max=360 step=15 oninput="thetaValue.value=value">
+<output id="thetaValue"></output>
+<br/>
+</form>
+<script>
+var initNumDivisions = 4
+var initTheta = 30
+
+// Browser doesn't set range to value attribute, so force it
+document.getElementById('numDivisions').value = initNumDivisions;
+document.getElementById('numDivisionsValue').value = document.getElementById('numDivisions').value;
+
+document.getElementById('theta').value = initTheta;
+document.getElementById('thetaValue').value = document.getElementById('theta').value;
+</script>
+<canvas id="gl-canvas" width="800" height="800">
+Oops ... your browser doesn't support the HTML5 canvas element
+</canvas>
+</body>
+</html>
