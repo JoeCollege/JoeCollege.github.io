@@ -81,9 +81,10 @@ function twist(vec2Point)
     var d = distanceFromOrigin(vec2Point)
     var x = vec2Point[0];
     var y = vec2Point[1];
+    var twistRadians = d * thetaRadians;
 
-    var tX = (x * Math.cos(d * thetaRadians)) - (y * Math.sin(d * thetaRadians));
-    var tY = (x * Math.sin(d * thetaRadians)) + (y * Math.cos(d * thetaRadians));
+    var tX = (x * Math.cos(twistRadians)) - (y * Math.sin(twistRadians));
+    var tY = (x * Math.sin(twistRadians)) + (y * Math.cos(twistRadians));
     return vec2(tX, tY);
 }
 
